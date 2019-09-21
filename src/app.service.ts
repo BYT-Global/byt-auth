@@ -49,12 +49,41 @@ export class AppService {
             .signInWithCredential(firebase.auth.GoogleAuthProvider.credential(idToken));
     }
 
+    authFacebook(idToken) {
+        return firebase.auth()
+            .signInWithCredential(firebase.auth.FacebookAuthProvider.credential(idToken));
+    }
+
     keepGoogleUser(user: any) {
         return this._userModel
             .findOneAndUpdate(
-                { googleToken: user.user.uid },
+                {
+                    $or: [
+                        { email: user.user.email },
+                        { googleToken: user.user.uid },
+                    ]
+                },
                 {
                     googleToken: user.user.uid,
+                    name: user.user.displayName,
+                    email: user.user.email,
+                    profilePhoto: user.user.photoURL
+                },
+                { upsert: true, new: true } as QueryFindOneAndUpdateOptions
+            );
+    }
+
+    keepFacebookUser(user: any) {
+        return this._userModel
+            .findOneAndUpdate(
+                {
+                    $or: [
+                        { email: user.user.email },
+                        { facebookToken: user.user.uid }
+                    ],
+                },
+                {
+                    facebookToken: user.user.uid,
                     name: user.user.displayName,
                     email: user.user.email,
                     profilePhoto: user.user.photoURL

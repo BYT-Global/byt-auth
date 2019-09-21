@@ -19,9 +19,9 @@
     js-tokens "^4.0.0"
 
 "@byt-org/byt-schema@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@byt-org/byt-schema/-/byt-schema-1.0.0.tgz#c6a403f4953657974f934e81cbb573290e073e21"
-  integrity sha512-9quw6U+jQTrennQt11w0v/YK1vrKD6DI+IMc22UadWAvJm5C01D/DquiqDcRIJPS4F1x1G71nA6o8+hMrfVx7Q==
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@byt-org/byt-schema/-/byt-schema-1.0.1.tgz#b033af7b6407fe4807c4d00ae85a4b3879b9fcf4"
+  integrity sha512-lRRwZYy2+EvpeZNP2IBC1nDEXWGcq9BPHoE19gCYCKgyvyPXWfxou7Skt6yaKmOyC1N1ej5pLfxx+xH65NQXWQ==
   dependencies:
     "@nestjs/common" "^6.2.4"
     "@nestjs/swagger" "^3.0.2"

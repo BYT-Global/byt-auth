@@ -25,7 +25,24 @@ export class AppController {
                     name: result.name,
                     email: result.email,
                     profilePhoto: result.profilePhoto
-                }, 'my-expenses', {expiresIn : '12h'})
+                }, 'byt-app-auth-2109')
+            }))
+            .catch((err) => res.json(err));
+    }
+
+    @Get('/authFacebook/:idToken')
+    @ApiImplicitParam({name: 'idToken'})
+    authFacebook(@Param() params, @Res() res: Response) {
+        this.appService
+            .authFacebook(params.idToken)
+            .then((result) => this.appService.keepFacebookUser(result))
+            .then((result: any) => res.json({
+                token : jwt.sign({
+                    _id: result._id,
+                    name: result.name,
+                    email: result.email,
+                    profilePhoto: result.profilePhoto
+                }, 'byt-app-auth-2109')
             }))
             .catch((err) => res.json(err));
     }
