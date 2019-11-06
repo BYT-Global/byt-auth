@@ -39,7 +39,7 @@
         "firebase-admin": "^8.5.0",
         "jest": "^23.6.0",
         "jsonwebtoken": "^8.5.1",
-        "mongoose": "^5.7.1",
+        "mongoose": "^5.7.5",
         "nestjs-typegoose": "^5.2.1",
         "nodemon": "^1.18.9",
         "prettier": "^1.15.3",
